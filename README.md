@@ -25,13 +25,13 @@ GET /api/v1/url/all
 [
   {
     "id": 1,
-    "short_url": "https://example.com/abc123",
+    "short_url": "https://foodsoul.maxray.pro/abc123",
     "long_url": "https://long-domain.com/page",
     "created_at": "2025-09-05 15:25:59"
   },
   {
     "id": 2,
-    "short_url": "https://example.com/xyz789",
+    "short_url": "https://foodsoul.maxray.pro/xyz789",
     "long_url": "https://another.com/test",
     "created_at": "2025-09-05 15:26:38"
   }
@@ -44,6 +44,7 @@ GET /api/v1/url/all
 **Запрос:**
 ```
 POST /api/v1/url/create
+
 Content-Type: application/x-www-form-urlencoded
 ```
 
@@ -52,7 +53,7 @@ Content-Type: application/x-www-form-urlencoded
 
 **Пример:**
 ```bash
-curl -X POST https://example.com/api/v1/url/create \
+curl -X POST https://foodsoul.maxray.pro/api/v1/url/create \
   -H "Authorization: Bearer <API_KEY>" \
   -d "url=https://google.com"
 ```
@@ -61,7 +62,7 @@ curl -X POST https://example.com/api/v1/url/create \
 ```json
 {
   "id": 3,
-  "short_url": "https://example.com/HKSMSpPfHaJ",
+  "short_url": "https://foodsoul.maxray.pro/xyz123",
   "long_url": "https://google.com",
   "created_at": "2025-09-05 16:10:12"
 }
@@ -77,7 +78,7 @@ DELETE /api/v1/url/{id}
 
 **Пример:**
 ```bash
-curl -X DELETE https://example.com/api/v1/url/3 \
+curl -X DELETE https://foodsoul.maxray.pro/api/v1/url/3 \
   -H "Authorization: Bearer <API_KEY>"
 ```
 
@@ -103,13 +104,13 @@ curl -X DELETE https://example.com/api/v1/url/3 \
 **Пример:**
 
 ```bash
-GET https://example.com/HKSMSpPfHaJ?json=1
+GET https://foodsoul.maxray.pro/xyz123?json=1
 ```
 
 **Ответ:**
 ```json
 {
-  "short_url": "https://example.com/HKSMSpPfHaJ",
+  "short_url": "https://foodsoul.maxray.pro/xyz123",
   "long_url": "https://google.com"
 }
 ```
