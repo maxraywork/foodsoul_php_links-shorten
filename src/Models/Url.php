@@ -86,7 +86,13 @@ class Url
 
     private function addDomainNameToShortUrl(array $data): array
     {
-        $domain = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
+        $scheme = 'http';
+        if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+            $scheme = 'https';
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+            $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+        }
+        $domain = $scheme . '://' . $_SERVER['HTTP_HOST'];
         $recursive = function (&$item) use (&$recursive, $domain) {
             if (is_array($item)) {
                 foreach ($item as &$value) {
